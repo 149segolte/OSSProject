@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 container min-h-screen relative"></body>
+<nav class="text-black bg-gray-400 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 justify-between flex-col md:flex-row title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <span class="text-4xl">Quizzy!</span>
+    </div>
+</nav>
+<div class="p-10">
+
+    <div id="quiz-container" class="max-w-md mx-auto bg-white p-6 rounded-md shadow-lg">
+        <h2 class="text-xl font-bold mb-4">Quiz Builder</h2>
+
+        <div id="questions-container">
+            <!-- Questions will be added here dynamically -->
+        </div>
+
+        <button id="add-question" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Add Question</button>
+        <button id="submit-quiz" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Submit Quiz</button>
+    
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questionsContainer = document.getElementById('questions-container');
+            const addQuestionButton = document.getElementById('add-question');
+
+            function addQuestion() {
+                
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question', 'mb-4');
+
+                // Question Input
+                const questionLabel = document.createElement('label');
+                questionLabel.textContent = 'Question:';
+                questionLabel.classList.add('block', 'font-semibold', 'mb-1');
+                questionDiv.appendChild(questionLabel);
+
+                const questionInput = document.createElement('input');
+                questionInput.classList.add('w-full', 'border', 'border-gray-300', 'py-2', 'px-3', 'rounded', 'mb-2');
+                questionInput.setAttribute('type', 'text');
+                questionInput.setAttribute('placeholder', 'Enter your question');
+                questionDiv.appendChild(questionInput);
+
+                // Time Limit Input
+                const timeLimitLabel = document.createElement('label');
+                timeLimitLabel.textContent = 'Time Limit In Seconds';
+                timeLimitLabel.classList.add('block', 'font-semibold', 'mb-1');
+                questionDiv.appendChild(timeLimitLabel);
+
+                const timeLimitInput = document.createElement('input');
+                timeLimitInput.classList.add('w-16', 'border', 'border-gray-300', 'py-2', 'px-3', 'rounded', 'mb-2');
+                timeLimitInput.setAttribute('type', 'number');
+                timeLimitInput.setAttribute('min', '5');
+                timeLimitInput.setAttribute('max', '60');
+                timeLimitInput.setAttribute('step', '5'); // Set step to 5 for multiples of 5
+                timeLimitInput.setAttribute('placeholder', '5');
+                questionDiv.appendChild(timeLimitInput);
+
+                // Points Input
+                const pointsLabel = document.createElement('label');
+                pointsLabel.textContent = 'Points';
+                pointsLabel.classList.add('block', 'font-semibold', 'mb-1');
+                questionDiv.appendChild(pointsLabel);
+
+                const pointsInput = document.createElement('input');
+                pointsInput.classList.add('w-16', 'border', 'border-gray-300', 'py-2', 'px-3', 'rounded', 'mb-2');
+                pointsInput.setAttribute('type', 'number');
+                pointsInput.setAttribute('min', '1'); 
+                pointsInput.setAttribute('max', '10'); 
+                pointsInput.setAttribute('placeholder', '1');
+                questionDiv.appendChild(pointsInput);
+
+                // Options Count Input
+                const optionsCountLabel = document.createElement('label');
+                optionsCountLabel.textContent = 'Number of Options';
+                optionsCountLabel.classList.add('block', 'font-semibold', 'mb-1');
+                questionDiv.appendChild(optionsCountLabel);
+
+                const optionsCountInput = document.createElement('input');
+                optionsCountInput.classList.add('w-16', 'border', 'border-gray-300', 'py-2', 'px-3', 'rounded', 'mb-2');
+                optionsCountInput.setAttribute('type', 'number');
+                optionsCountInput.setAttribute('min', '2');
+                optionsCountInput.setAttribute('max', '6'); 
+                optionsCountInput.setAttribute('placeholder', '2');
+                questionDiv.appendChild(optionsCountInput);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                optionsCountInput.addEventListener('change', function() {
+                    const numOptions = parseInt(this.value);
+                    optionsContainer.innerHTML = '';
+
+                    for (let i = 1; i <= numOptions; i++) {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.classList.add('mb-2', 'flex', 'items-center');
+
+                        const optionInput = document.createElement('input');
+                        optionInput.classList.add('w-full', 'border', 'border-gray-300', 'py-2', 'px-3', 'rounded');
+                        optionInput.setAttribute('type', 'text');
+                        optionInput.setAttribute('placeholder', `Option ${i}`);
+                        optionDiv.appendChild(optionInput);
+
+                        const isCorrectInput = document.createElement('input');
+                        isCorrectInput.setAttribute('type', 'checkbox');
+                        isCorrectInput.classList.add('ml-2');
+                        optionDiv.appendChild(isCorrectInput);
+
+                        optionsContainer.appendChild(optionDiv);
+                    }
+                });
+
+                questionDiv.appendChild(optionsContainer);
+                questionsContainer.innerHTML = ''; 
+                questionsContainer.appendChild(questionDiv);
+                
+            }
+
+            addQuestionButton.addEventListener('click', addQuestion);
+            function submitQuiz() {
+                }
+
+                submitButton.addEventListener('click', submitQuiz);
+                
+
+
+        });
+        
+    </script>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

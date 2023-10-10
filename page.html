@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <script src="bootstrapper.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100">
+    <nav class="text-black bg-gray-400 body-font">
+        <div
+            class="container mx-auto flex flex-wrap p-5 justify-between flex-col md:flex-row title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <span class="text-4xl">Quizzy!</span>
+            <div class="text-xl">
+                <a class="mr-5 hover:text-gray-900">Home</a>
+                <a class="mr-5 hover:text-gray-900">Activity</a>
+                <button
+                    class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Create
+                    a quiz!
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto p-10 text-center" id="welcomeSection">
+
+        <h1 class="text-4xl font-bold mb-4">Welcome to Quizzy</h1>
+        <p class="text-xl text-gray-700 mb-8">Test your knowledge with these fun quizzes!</p>
+        <div class="flex items-center justify-center mt-8">
+            <input type="text" placeholder="Enter your name" class="border border-gray-400 p-2 mr-2">
+            <input type="text" placeholder="Enter a join code" class="border border-gray-400 p-2 mr-2">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded">Join</button>
+        </div>
+    </div>
+
+
+    <div class="main-div flex items-center justify-center bg-gray-100" id="quizSection">
+        <div class="inner-div bg-white p-12 rounded-lg shadow-lg w-3/4 text-center"> <!-- Added text-center class -->
+            <h2 class="text-3xl font-semibold mb-8">Question comes here</h2>
+            <ul>
+                <li class="text-xl mb-6">
+                    <input type="radio" name="answer" id="ans2" class="answer cursor-pointer mr-4"> <label for="ans2"
+                        id="option2" class="cursor-pointer"> Answer Option </label>
+                </li>
+                <li class="text-xl mb-6">
+                    <input type="radio" name="answer" id="ans3" class="answer cursor-pointer mr-4"> <label for="ans3"
+                        id="option3" class="cursor-pointer"> Answer Option </label>
+                </li>
+                <li class="text-xl mb-6">
+                    <input type="radio" name="answer" id="ans4" class="answer cursor-pointer mr-4"> <label for="ans4"
+                        id="option4" class="cursor-pointer"> Answer Option </label>
+                </li>
+                <li class="text-xl mb-6">
+                    <input type="radio" name="answer" id="ans4" class="answer cursor-pointer mr-4"> <label for="ans4"
+                        id="option4" class="cursor-pointer"> Answer Option </label>
+                </li>
+            </ul>
+            <button id="submit"
+                class="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded-full mt-16 block mx-auto">Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
