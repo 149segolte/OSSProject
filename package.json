@@ -4,7 +4,7 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "tailwind": "tailwindcss -i ./in.css -o ./assets/styles.css --content './views/*.html' --watch",
+    "tailwind": "tailwindcss -i ./in.css -o ./assets/style.css --content './views/*.html' --watch",
     "watch": "bun run --watch index.ts",
     "dev": "bun watch & bun tailwind",
     "start": "bun run index.ts"

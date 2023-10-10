@@ -31,6 +31,18 @@ app.get("/room", (req, res) => {
     });
 });
 
+app.get("/wait", (req, res) => {
+    res.render("wait", { name: req.query.name, code: req.query.code });
+});
+
+app.get("/login", (req, res) => {
+    res.render("login", { ...defaults });
+});
+
+app.get("/signup", (req, res) => {
+    res.render("signup", { ...defaults });
+});
+
 app.get("/quiz/:id", (req, res) => {
     console.log(req.params.id);
     res.render("quiz", { code: req.params.id });
