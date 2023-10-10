@@ -1,0 +1,22 @@
+{
+  "name": "ossproject",
+  "module": "index.ts",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "tailwind": "tailwindcss -i ./in.css -o ./assets/styles.css --content './views/*.html' --watch",
+    "watch": "bun run --watch index.ts",
+    "dev": "bun watch & bun tailwind",
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.5-canary.20231009T140142"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "squirrelly": "^9.0.0"
+  }
+}
