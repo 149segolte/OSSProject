@@ -23,8 +23,8 @@ const create = (/* ques */) => {
   console.log("counter: ", counter);
 
   // Format of the question for input in the function
-  // let ques = {
-  //   0: {
+  // let ques = [
+  //   {
   //     "correct": 0,
   //     "option": {
   //       0: "good",
@@ -33,7 +33,8 @@ const create = (/* ques */) => {
   //     },
   //     "text": "how are you?",
   //   },
-  // };
+  // 
+  // ];
 
   db.ref().child("quiz").set(counter)
   db.ref(`quiz/${counter}`).set(ques)
@@ -48,12 +49,16 @@ const create = (/* ques */) => {
 };
 // create();
 
+// Getting questions using quiz id
 let id = 0;
+data_promise = await db.ref().child("quiz").once("value");
 const get = (id) => {
   // It returns array of questions with its text, options and correct answer
   return data_promise.child(id).val()
 }
 console.log(get(id));
+
+
 
 const app = express();
 const port = 8080;
