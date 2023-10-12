@@ -18,7 +18,7 @@ let data_promise = await db.ref().child("quiz").once("value");
 let data = data_promise.val();
 console.log(data);
 
-const create = (ques) => {
+const create = (/* ques */) => {
   let counter = data_promise.child("counter").val();
   console.log("counter: ", counter);
 
@@ -47,6 +47,13 @@ const create = (ques) => {
   db.ref("quiz").child("counter").set(counter+1);
 };
 // create();
+
+let id = 0;
+const get = (id) => {
+  // It returns array of questions with its text, options and correct answer
+  return data_promise.child(id).val()
+}
+console.log(get(id));
 
 const app = express();
 const port = 8080;
