@@ -64,6 +64,9 @@
             </div>
         </div>>
     </div>
+    {{@each(it.scripts) => val, index}}
+    {{val | safe}}
+    {{/each}}
 </body>
 
 </html>

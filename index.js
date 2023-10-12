@@ -1,6 +1,25 @@
 import express from "express";
 import * as Sqrl from "squirrelly";
 
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getDatabase } from 'firebase-admin/database'
+import { readFile } from 'fs/promises';
+const serviceAccount = JSON.parse(
+  await readFile(
+    new URL('./admin.json', import.meta.url)
+  )
+);
+initializeApp({
+  credential: cert(serviceAccount),
+  databaseURL: "https://ossp-53235-default-rtdb.asia-southeast1.firebasedatabase.app"
+});
+var db = getDatabase();
+
+let data_promise = await db.ref().child("quiz").once('value');
+let data = data_promise.val();
+
+console.log(data)
+
 const app = express();
 const port = 8080;
 
@@ -16,6 +35,9 @@ const defaults = {
         "<script src='htmx.1.9.6.min.js'></script>",
         "<script src='script.js'></script>",
         "<link href='style.css' rel='stylesheet'>",
+    ],
+    scripts: [
+        ""
     ],
 };
 
