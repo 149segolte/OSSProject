@@ -4,14 +4,14 @@
 <head>
     <title>Welcome to Quizzer!</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta class="opacity-50" name="viewport" content="width=device-width, initial-scale=1">
     {{@each(it.imports) => val, index}}
     {{val | safe}}
     {{/each}}
 </head>
 
 <body class="flex w-screen h-screen m-0 p-0 font-['Poppins'] bg-gradient-to-r from-blue-400 via-purple-500 to-red-500">
-    <div class="w-full h-full m-0 p-0 relative">
+    <div class="flex flex-col w-full h-full m-0 p-0 relative">
         <nav hx-boost="true"
             class="container flex flex-row mx-auto my-4 p-2 bg-neutral-100 rounded-xl shadow-2xl items-center justify-center">
             <a class="ml-1 text-3xl font-bold" href="/">Quizzer</a>
